@@ -15,3 +15,12 @@ test('returns their sum for more than two arguments',()=>{
 test('handle new lines between numbers',()=>{
   expect(calculator.add("1\n2,3")).toBe(6);
 })
+test('Support different delimiters',()=>{
+  expect(calculator.add("//~\n1~2")).toBe(3);
+})
+test('passing a negative number will throw an exception',()=>{
+  expect(calculator.add("1,4,-1")).toBe("negatives not allowed: -1");
+});
+test('shows all of the negative numbers in the exception message',()=>{
+  expect(calculator.add("1,4,-1,-2,-3")).toBe("negatives not allowed: -1,-2,-3");
+});

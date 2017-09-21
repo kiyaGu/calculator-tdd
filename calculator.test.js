@@ -24,3 +24,6 @@ test('passing a negative number will throw an exception',()=>{
 test('shows all of the negative numbers in the exception message',()=>{
   expect(calculator.add("1,4,-1,-2,-3")).toBe("negatives not allowed: -1,-2,-3");
 });
+test('ignores numbers greater than 1000',()=>{
+  expect(calculator.add("2,1000")).toBe(2);
+});
